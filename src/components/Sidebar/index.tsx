@@ -1,74 +1,42 @@
-import { Home, Library as LibraryIcon, Search } from "lucide-react";
+"use client";
+
+import { usePathname } from "next/navigation";
 
 import { Library } from "../Library";
 import { NavItem } from "../NavItem";
 
-export function Sidebar() {
+import { LIBRARY, MENU } from "@/constants";
+import { cn } from "@/utils";
+
+interface SidebarProps {
+  expanded?: boolean;
+}
+
+export function Sidebar(props: SidebarProps) {
+  const pathname = usePathname();
+
   return (
-    <aside className="w-72 bg-zinc-950 py-8 px-6 h-[calc(100vh-85px)] overflow-hidden">
-      <nav className="space-y-5 pb-6 border-b border-zinc-800">
-        <NavItem
-          active
-          icon={<Home />}
-          label="Início"
-        />
-        <NavItem
-          icon={<Search className="text-zinc-400" />}
-          label="Buscar"
-        />
-        <NavItem
-          icon={<LibraryIcon className="text-zinc-400" />}
-          label="Sua Biblioteca"
-        />
+    <aside className={cn("w-80 bg-black pt-16 overflow-hidden flex flex-col", props.expanded ? 'h-[calc(100%-116px)]' : 'h-[calc(100%-436px)]')}>
+      <nav className="space-y-5 px-6">
+        {MENU.map(item => (
+          <NavItem
+            {...item}
+            key={item.label}
+            active={pathname === item.link}
+            icon={pathname === item.link ? item.iconFilled : item.icon}
+          />
+        ))}
       </nav>
 
-      <nav className="mt-6 -mr-6 pr-3 flex flex-col overflow-y-scroll h-[84%] playlist">
-        <Library
-          active
-          image="/metallica.webp"
-          title="BEST METALLICA"
-          description="Playlist &bull; Carlos Faustino"
-        />
-        <Library
-          image="/iron-maiden.jpg"
-          title="Heavy Metal"
-          description="Playlist &bull; Carlos Faustino"
-        />
-        <Library
-          image="/rhcp.jpg"
-          title="BEST RHCP"
-          description="Playlist &bull; Carlos Faustino"
-        />
-        <Library
-          image="/metallica.webp"
-          title="Thrash Metal"
-          description="Playlist &bull; Carlos Faustino"
-        />
-        <Library
-          image="/offspring.jpg"
-          title="Punk Rock"
-          description="Playlist &bull; Carlos Faustino"
-        />
-        <Library
-          image="/iron-maiden.jpg"
-          title="BEST IRON MAIDEN"
-          description="Playlist &bull; Carlos Faustino"
-        />
-        <Library
-          image="/iron-maiden.jpg"
-          title="The Number of The Beast"
-          description="Álbum &bull; Iron Maiden"
-        />
-        <Library
-          image="/metallica.webp"
-          title="72 Seasons"
-          description="Ábum &bull; Metallica"
-        />
-        <Library
-          image="/pearl-jam.jpg"
-          title="Grunge"
-          description="Playlist &bull; Carlos Faustino"
-        />
+      <hr className="border-grayscale-800 mx-6 mt-5 mb-3" />
+
+      <nav className="overflow-y-scroll h-full playlist">
+        {LIBRARY.map(item => (
+          <Library
+            {...item}
+            key={item.title}
+          />
+        ))}
       </nav>
     </aside>
   );

@@ -1,4 +1,3 @@
-import { Play } from "lucide-react";
 import Image from "next/image";
 
 interface RecentProps {
@@ -8,18 +7,23 @@ interface RecentProps {
 
 export function Recent(props: RecentProps) {
   return (
-    <a href="#" className="bg-white/5 group rounded overflow-hidden flex items-center gap-3 hover:bg-white/10 transition-colors">
+    <a href="#" className="bg-white/10 h-20 max-w-[480px] group rounded-md overflow-hidden flex-1 flex gap-5 hover:bg-white/20 text-inherit justify-between">
       <Image
         src={props.image}
         alt={`Capa do álbum ${props.name}`}
-        width={72}
-        height={72}
+        width={80}
+        height={80}
       />
 
-      <strong className="font-medium">{props.name}</strong>
-      <button className="size-12 pl-0.5 rounded-full bg-green-500 text-black ml-auto mr-4 flex items-center justify-center shadow-lg shadow-black/50 invisible group-hover:visible hover:scale-105">
-        <Play className="fill-black" />
-      </button>
+      <strong className="font-bold text-xl self-center flex-1">{props.name}</strong>
+
+      <Image
+        src="/assets/play-green.svg"
+        alt="Play"
+        width={94}
+        height={94}
+        className="invisible group-hover:visible"
+      />
     </a>
   );
 }
