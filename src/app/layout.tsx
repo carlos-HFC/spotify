@@ -1,10 +1,17 @@
 import type { Metadata } from 'next';
 import { Rubik } from 'next/font/google';
+
+import { Layout } from "@/components/Layout";
+
+import { circular } from '@/fonts';
+import { cn } from "@/utils";
+
 import './globals.css';
 
 const rubik = Rubik({
   display: "swap",
-  subsets: ["latin"]
+  subsets: ["latin"],
+  variable: '--rubik'
 });
 
 export const metadata: Metadata = {
@@ -19,7 +26,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={`${rubik.className} bg-zinc-900 text-zinc-50`}>{children}</body>
+      <body className={cn("font-circular bg-grayscale-1000 text-white", circular.variable, rubik.variable)}>
+        <Layout>
+          {children}
+        </Layout>
+      </body>
     </html>
   );
 }
