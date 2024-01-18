@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'liked-songs': 'linear-gradient(135deg, #3822EA 3.13%, #A3A6E5 100%)'
+        'liked-songs': 'linear-gradient(135deg, #3822EA 3.13%, #A3A6E5 100%)',
+        bloom: 'url("/assets/search.svg")'
       },
       colors: {
         spotify: {
