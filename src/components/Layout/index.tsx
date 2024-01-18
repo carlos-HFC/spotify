@@ -3,6 +3,7 @@
 import { PropsWithChildren, useState } from "react";
 
 import { Footer } from "../Footer";
+import { Header } from "../Header";
 import { Sidebar } from "../Sidebar";
 
 export function Layout(props: PropsWithChildren) {
@@ -12,7 +13,11 @@ export function Layout(props: PropsWithChildren) {
     <main className="h-screen flex">
       <Sidebar expanded={!footerIsExpanded} />
 
-      {props.children}
+      <Header />
+
+      <div className="pl-80 pt-20">
+        {props.children}
+      </div>
 
       <Footer
         expanded={footerIsExpanded}
