@@ -204,3 +204,21 @@ export const SONGS = [
     liked: true
   },
 ];
+
+export const CONTEXT_MENU_HEADER = [
+  {
+    label: 'Conta',
+  },
+  {
+    label: 'Perfil',
+  },
+  {
+    label: 'Sessão particular',
+  },
+  {
+    label: 'Configurações',
+  },
+  {
+    label: 'Sair',
+  },
+];
