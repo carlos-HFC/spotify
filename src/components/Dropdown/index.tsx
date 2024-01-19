@@ -10,14 +10,23 @@ export function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') return setIsOpen(false);
+    };
+
     const closeDrop = (event: MouseEvent) => {
       if ((event?.target as HTMLButtonElement)?.hasAttribute('aria-controls')) return;
 
       setIsOpen(false);
     };
 
+    window.addEventListener("keydown", onKeyDown);
     document.body.addEventListener("click", closeDrop);
-    return () => document.body.removeEventListener("click", closeDrop);
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.removeEventListener("click", closeDrop);
+    };
   }, []);
 
   return (
@@ -27,7 +36,7 @@ export function Dropdown() {
         id="dropdown-list"
         aria-label="Abrir e fechar menu"
         aria-expanded={isOpen}
-        className="flex items-center p-1 pr-3 gap-3 bg-black/80 text-white rounded-full *:pointer-events-none"
+        className="flex items-center p-1 pr-3 gap-3 bg-black/80 text-white rounded-full *:pointer-events-none outline-black focus-visible:outline"
         onClick={() => setIsOpen(prev => !prev)}
       >
         <Image
