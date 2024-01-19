@@ -112,7 +112,7 @@ export function Footer(props: FooterProps) {
         <div className="gap-2 group">
           <span className="text-grayscale-300">0:31</span>
 
-          <div className="h-1 rounded-full w-[550px] bg-white/50 relative">
+          <div className="h-1 rounded-full w-[clamp(100px,30vw,550px)] bg-white/50 relative">
             <div className="bg-white w-1/2 h-1 rounded-full group-hover:bg-green-500" />
             <span className="size-3 top-1/2 -translate-y-1/2 left-1/2 bg-white absolute rounded-full invisible group-hover:visible" />
           </div>
