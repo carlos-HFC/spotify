@@ -15,7 +15,7 @@ export function Layout(props: PropsWithChildren) {
 
       <Header />
 
-      <div className="pl-80 pt-20">
+      <div className="pl-80 pt-20 w-full">
         {props.children}
       </div>
 
