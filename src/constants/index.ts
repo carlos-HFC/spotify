@@ -222,3 +222,34 @@ export const CONTEXT_MENU_HEADER = [
     label: 'Sair',
   },
 ];
+
+export const CONTEXT_MENU_SONG = [
+  {
+    label: "Adicionar à fila",
+    icon: false
+  },
+  {
+    label: "Ir para a rádio da música",
+    icon: false
+  },
+  {
+    label: "Ir para o artista",
+    icon: true
+  },
+  {
+    label: "Ir para o álbum",
+    icon: false
+  },
+  {
+    label: "Remover das Músicas Curtidas",
+    icon: false
+  },
+  {
+    label: "Adicionar à playlist",
+    icon: true
+  },
+  {
+    label: "Compartilhar",
+    icon: true
+  }
+];
