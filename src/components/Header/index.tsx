@@ -14,7 +14,11 @@ export function Header() {
     <header className={cn("fixed w-[calc(100%-20rem)] right-0", pathname === "/buscar" || pathname === "/biblioteca" ? "bg-black" : "bg-grayscale-1000")}>
       <div className="px-10 h-20 flex items-center justify-between">
         <div className="flex items-center gap-5">
-          <button aria-label="Voltar">
+          <button
+            aria-label="Voltar"
+            disabled
+            className="disabled:opacity-70"
+          >
             <Image
               src="/assets/back.svg"
               alt="Voltar"
@@ -22,7 +26,11 @@ export function Header() {
               height={40}
             />
           </button>
-          <button aria-label="Avançar">
+          <button
+            aria-label="Avançar"
+            disabled
+            className="disabled:opacity-70"
+          >
             <Image
               src="/assets/forward.svg"
               alt="Avançar"
