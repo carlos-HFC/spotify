@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 
 type Coords = {
   x: number;
@@ -28,10 +28,30 @@ export function useContextMenu() {
     };
   }, []);
 
+  function handleContextMenu(event: MouseEvent<HTMLDivElement | HTMLButtonElement>) {
+    event.preventDefault();
+    setClicked(true);
+
+    let coordX = event.pageX,
+      coordY = event.pageY;
+
+    const clientWidth = event.currentTarget.offsetWidth;
+    const clientHeight = document.documentElement.offsetHeight;
+
+    if (event.pageX - 20 > clientWidth) coordX -= 286;
+    if ((event.screenY + 115) + 430 > clientHeight) coordY -= 430;
+
+    setCoords({
+      x: coordX,
+      y: coordY
+    });
+  }
+
   return {
     clicked,
     setClicked,
     coords,
-    setCoords
+    setCoords,
+    handleContextMenu
   };
 }
