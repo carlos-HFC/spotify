@@ -39,6 +39,7 @@ export function Music(props: MusicProps) {
             alt={props.album}
             width={52}
             height={52}
+            loading="lazy"
           />
 
           <div>

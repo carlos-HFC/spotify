@@ -40,8 +40,9 @@ export function Dropdown() {
         onClick={() => setIsOpen(prev => !prev)}
       >
         <Image
-          src="/metallica.webp"
+          src="/72-seasons.webp"
           alt="Usuário logado"
+          loading="lazy"
           width={32}
           height={32}
           className="rounded-full"
@@ -69,6 +70,6 @@ export function Dropdown() {
           ))}
         </ul>
       </nav>
-    </div >
+    </div>
   );
 }
