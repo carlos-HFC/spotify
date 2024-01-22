@@ -1,31 +1,38 @@
 import Image from "next/image";
 
+import { cn } from "@/utils";
+
 interface SuggestionProps {
   image: string;
   title: string;
   description: string;
   isSearch?: boolean;
+  rounded?: boolean;
 }
 
 export function Suggestion(props: SuggestionProps) {
   return (
-    <a href="#" className="bg-white/5 p-5 rounded-lg hover:bg-white/10 h-max w-[224px] min-h-[324px] flex flex-col gap-2 group text-inherit relative">
-      <div className="absolute top-3 right-3 rounded-full bg-black/20">
+    <a
+      href="#"
+      className="bg-white/5 p-5 rounded-lg hover:bg-white/10 h-max w-[224px] min-h-[324px] flex-1 flex flex-col gap-2 group text-inherit relative"
+    >
+      <div className={cn("absolute top-3 right-3 rounded-full bg-black/20", props.isSearch ? "block" : "hidden")}>
         <Image
           src="/assets/close.svg"
-          alt="Play"
+          alt="Remover"
           width={32}
           height={32}
         />
       </div>
 
-      <div className="relative shadow-md">
+      <div className="relative h-[184px]">
         <Image
           src={props.image}
-          alt={`Sugestão de ${props.title}`}
+          alt={props.title}
           width={182}
           height={182}
-          className={`${props.isSearch ? "rounded-full" : "rounded"} w-full"`}
+          loading="lazy"
+          className={cn("w-full shadow-lg shadow-black/50", props.isSearch || props.rounded ? "rounded-full" : "rounded")}
         />
 
         <Image
