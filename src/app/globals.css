@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+#content:hover::-webkit-scrollbar-thumb {
+  @apply bg-zinc-700;
+}
+
+#content::-webkit-scrollbar {
+  @apply w-3;
+}
+
+#content::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+#content::-webkit-scrollbar-thumb:hover {
+  @apply bg-zinc-500;
+}
+
 .playlist:hover::-webkit-scrollbar-thumb {
   @apply bg-zinc-700;
 }
