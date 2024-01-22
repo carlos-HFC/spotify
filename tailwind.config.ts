@@ -10,7 +10,8 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'liked-songs': 'linear-gradient(135deg, #3822EA 3.13%, #A3A6E5 100%)',
-        bloom: 'url("/assets/search.svg")'
+        bloom: 'url("/assets/search.svg")',
+        home: 'linear-gradient(180deg, #3333A3 78px, #121212 415px)'
       },
       colors: {
         spotify: {
