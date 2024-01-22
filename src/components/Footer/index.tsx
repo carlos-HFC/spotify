@@ -9,7 +9,7 @@ interface FooterProps {
 
 export function Footer(props: FooterProps) {
   return (
-    <footer className="fixed bottom-0 w-full bg-grayscale-1000 p-5 flex justify-between pr-6 *:flex *:items-center">
+    <footer className="fixed left-0 bottom-0 w-full bg-grayscale-1000 p-5 flex justify-between pr-6 *:flex *:items-center">
       <div className="absolute bottom-[116px] left-0">
         <button
           aria-label="Retrair"
@@ -25,16 +25,17 @@ export function Footer(props: FooterProps) {
         </button>
 
         <Image
-          src="/metallica.webp"
+          src="/72-seasons.webp"
           alt="Capa do álbum 72 Seasons do Metallica"
           width={320}
           height={320}
+          loading="lazy"
           className={props.expanded ? '' : 'hidden'}
         />
       </div>
 
       <div className="gap-5">
-        <div className={cn('group relative', props.expanded ? 'hidden' : '')}>
+        <div className={cn('group relative', props.expanded && 'hidden')}>
           <button
             aria-label="Expandir"
             className="invisible group-hover:visible absolute z-10 right-1 top-1"
@@ -50,10 +51,11 @@ export function Footer(props: FooterProps) {
           </button>
 
           <Image
-            src="/metallica.webp"
+            src="/72-seasons.webp"
             alt="Capa do álbum 72 Seasons do Metallica"
             width={72}
             height={72}
+            loading="lazy"
           />
         </div>
 

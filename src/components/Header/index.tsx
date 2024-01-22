@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
@@ -7,11 +9,15 @@ import { SortLibrary } from "../SortLibrary";
 
 import { cn } from "@/utils";
 
-export function Header() {
+interface HeaderProps {
+  scroll: boolean;
+}
+
+export function Header(props: HeaderProps) {
   const pathname = usePathname();
 
   return (
-    <header className={cn("fixed w-[calc(100%-20rem)] right-0", pathname === "/buscar" || pathname === "/biblioteca" ? "bg-black" : "bg-grayscale-1000")}>
+    <header className={cn("fixed w-[calc(100%-20rem)] transition-colors z-10 right-0", pathname === "/buscar" || pathname === "/biblioteca" || props.scroll ? "bg-black" : "bg-transparent")}>
       <div className="px-10 h-20 flex items-center justify-between">
         <div className="flex items-center gap-5">
           <button

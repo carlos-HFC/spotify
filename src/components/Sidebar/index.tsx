@@ -16,7 +16,7 @@ export function Sidebar(props: SidebarProps) {
   const pathname = usePathname();
 
   return (
-    <aside className={cn("w-80 bg-black pt-16 overflow-hidden flex flex-col fixed", props.expanded ? 'h-[calc(100%-116px)]' : 'h-[calc(100%-436px)]')}>
+    <aside className={cn("w-80 bg-black pt-16 overflow-hidden flex flex-col", props.expanded ? 'h-[calc(100%-116px)]' : 'h-[calc(100%-436px)]')}>
       <nav className="space-y-5 px-6">
         {MENU.map(item => (
           <NavItem

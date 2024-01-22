@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={cn("font-circular bg-grayscale-1000 text-white", circular.variable, rubik.variable)}>
+      <body className={cn("font-circular bg-grayscale-1000 text-white flex h-screen overflow-hidden", circular.variable, rubik.variable)}>
         <Layout>
           {children}
         </Layout>
