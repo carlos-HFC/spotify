@@ -1,0 +1,1 @@
+type Genre = 'pop' | 'afro' | 'hip-hop' | 'podcasts' | 'made-for-you' | 'music' | 'live-event' | 'release' | 'brazil' | 'pagode' | 'mpb' | 'rock' | 'alternative' | 'blues' | 'punk' | 'classic' | 'instrumental' | 'jazz' | 'reggae' | 'tv' | 'games' | 'rb' | 'kpop' | 'latina' | 'soul' | 'folk' | 'country' | 'sertanejo';
