@@ -29,13 +29,14 @@ export function Layout(props: PropsWithChildren) {
     <>
       <Sidebar expanded={!footerIsExpanded} />
 
-      <main className="h-screen flex flex-1">
+      <main
+        ref={contentRef}
+        id="content"
+        className="w-full flex flex-1 overflow-y-auto h-[calc(100%-116px)]"
+      >
         <Header scroll={scrolled} />
 
-        <div
-          ref={contentRef}
-          className="w-full overflow-y-auto h-[calc(100%-116px)]"
-        >
+        <div className="w-full">
           {props.children}
         </div>
 
