@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-import { convertMinutesToHours } from "@/utils";
-
 interface CoverProps {
   title: string;
   description?: string;
@@ -10,7 +8,7 @@ interface CoverProps {
   author: string;
   likes?: number;
   qty: number;
-  time?: number;
+  time?: string;
 }
 
 export function Cover(props: CoverProps) {
@@ -21,6 +19,7 @@ export function Cover(props: CoverProps) {
           src={props.image}
           alt={props.title}
           fill
+          loading="lazy"
           className="rounded shadow-xl shadow-black/25"
         />
       </div>
@@ -51,7 +50,7 @@ export function Cover(props: CoverProps) {
             </>
           )}
           <span className="text-white/70">
-            {props.qty} músicas{props.time && `, ${convertMinutesToHours(props.time)}`}
+            {props.qty} músicas{props.time && `, ${props.time}`}
           </span>
         </div>
       </div>
