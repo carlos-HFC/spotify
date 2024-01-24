@@ -16,8 +16,7 @@ export default function Home() {
           {RECENTLY_PLAYED.slice(0, 6).map(item => (
             <Recent
               key={item.title}
-              image={item.image}
-              name={item.title}
+              {...item}
             />
           ))}
         </div>
