@@ -161,6 +161,7 @@ export const SONGS = [
     album: 'Supernatural (Legacy Edition)',
     image: '',
     time: '4:55',
+    date: '2023-12-08',
     liked: true
   },
   {
@@ -169,6 +170,7 @@ export const SONGS = [
     album: 'Texas Flood (Legacy Edition)',
     image: '',
     time: '4:57',
+    date: '2023-12-08',
     liked: true
   },
   {
@@ -177,6 +179,7 @@ export const SONGS = [
     album: 'Purple Rain',
     image: '',
     time: '8:41',
+    date: '2023-12-08',
     liked: true
   },
   {
@@ -185,6 +188,7 @@ export const SONGS = [
     album: 'The Wall',
     image: '',
     time: '6:22',
+    date: '2023-12-08',
     liked: true
   },
   {
@@ -193,6 +197,7 @@ export const SONGS = [
     album: 'White Blood Cells',
     image: '',
     time: '2:20',
+    date: '2023-12-08',
     liked: true
   },
   {
@@ -201,6 +206,7 @@ export const SONGS = [
     album: 'Brothers In Arms (Remastered)',
     image: '',
     time: '4:10',
+    date: '2023-12-08',
     liked: true
   },
 ];
