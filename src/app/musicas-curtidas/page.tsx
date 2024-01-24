@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 import { ContextMenu } from "@/components/ContextMenu";
 import { Cover } from "@/components/Cover";
@@ -8,9 +9,31 @@ import { Music } from "@/components/Music";
 
 import { SONGS } from "@/constants";
 import { useContextMenu } from "@/hooks/useContextMenu";
+import { orderArray } from "@/utils";
+
+type FilterSongs = {
+  key?: string;
+  asc?: boolean;
+};
 
 export default function MusicasCurtidas() {
   const contextMenu = useContextMenu();
+
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  function sortSongs({ key, asc }: FilterSongs) {
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (key) params.set('sort', key);
+    else params.delete('sort');
+
+    if (asc) params.set('order', String(asc));
+    else params.delete('order');
+
+    router.replace(`${pathname}?${params.toString()}`);
+  }
 
   return (
     <div className="flex flex-col bg-liked-page pt-24 min-h-screen">
@@ -24,14 +47,15 @@ export default function MusicasCurtidas() {
         />
       </header>
 
-      <section className="bg-grayscale-1000/30 px-10 pt-8 h-screen">
+      <section className="bg-grayscale-1000/30 px-10 pt-8 h-screen space-y-8">
         <div className="flex justify-between items-center *:flex *:items-center">
           <div className="gap-5 *:opacity-75 hover:*:opacity-100 hover:*:scale-105">
             <Image
               src="/assets/play-green.svg"
               alt="Tocar playlist"
-              width={94}
-              height={94}
+              width={72}
+              height={72}
+              className="drop-shadow-play-green"
             />
             <Image
               src="/assets/shuffle.svg"
@@ -81,15 +105,28 @@ export default function MusicasCurtidas() {
             <col width="15%" />
           </colgroup>
           <thead className="text-grayscale-200 text-base border-b border-grayscale-300">
-            <tr>
-              <th className="py-3 pl-5 font-normal">
+            <tr className="*:select-none hover:*:text-white">
+              <th
+                className="py-3 pl-5 font-normal"
+                onClick={() => sortSongs({ key: 'song' })}
+              >
                 <div className="flex items-center gap-4 justify-start">
                   <span className="min-w-[28px] text-center">#</span>
                   <span>Título</span>
                 </div>
               </th>
-              <th className="text-left font-normal">Álbum</th>
-              <th className="text-left font-normal">Adicionada em</th>
+              <th
+                className="text-left font-normal"
+                onClick={() => sortSongs({ key: 'album' })}
+              >
+                Álbum
+              </th>
+              <th
+                className="text-left font-normal"
+                onClick={() => sortSongs({ key: 'date' })}
+              >
+                Adicionada em
+              </th>
               <th className="pr-5 font-normal">
                 <div className="flex justify-end mr-11">
                   <Image
@@ -103,14 +140,12 @@ export default function MusicasCurtidas() {
             </tr>
           </thead>
           <tbody className="before:text-transparent before:h-5 before:block">
-            {SONGS.map((item, i) => (
+            {orderArray(SONGS, searchParams.get("sort") as keyof Omit<Track, 'description'>).map((item, i) => (
               <Music
                 key={item.song}
                 {...item}
                 index={i + 1}
                 onContextMenu={contextMenu.handleContextMenu}
-                isPlaying={i === 0}
-                image="/metallica.webp"
               />
             ))}
           </tbody>

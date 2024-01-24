@@ -156,59 +156,222 @@ export const LIBRARY = [
 
 export const SONGS = [
   {
-    artist: 'Santana',
-    song: 'Smooth',
-    album: 'Supernatural (Legacy Edition)',
-    image: '',
-    time: '4:55',
-    date: '2023-12-08',
+    artist: "Metallica",
+    song: "Crown of Barbed Wire",
+    album: "72 Seasons",
+    image: "/72-seasons.webp",
+    time: "5:49",
+    date: "2023-04-14",
+    liked: true,
+    isPlaying: true
+  },
+  {
+    artist: "Red Hot Chili Peppers",
+    song: "Easily",
+    album: "Californication (Deluxe Edition)",
+    image: "/californication.webp",
+    time: "3:51",
+    date: "2021-05-22",
     liked: true
   },
   {
-    artist: 'Stevie Ray Vaughan',
-    song: 'Lenny',
-    album: 'Texas Flood (Legacy Edition)',
-    image: '',
-    time: '4:57',
-    date: '2023-12-08',
+    artist: "Red Hot Chili Peppers",
+    song: "Savior",
+    album: "Californication (Deluxe Edition)",
+    image: "/californication.webp",
+    time: "4:52",
+    date: "2021-05-22",
     liked: true
   },
   {
-    artist: 'Prince',
-    song: 'Purple Rain',
-    album: 'Purple Rain',
-    image: '',
-    time: '8:41',
-    date: '2023-12-08',
+    artist: "Iron Maiden",
+    song: "The Number of the Beast",
+    album: "The Number of the Beast (2015 Remaster)",
+    image: "/the-number-of-the-beast.webp",
+    time: "4:51",
+    date: "2021-04-29",
     liked: true
   },
   {
-    artist: 'Pink Floyd',
-    song: 'Comfortably Numb',
-    album: 'The Wall',
-    image: '',
-    time: '6:22',
-    date: '2023-12-08',
+    artist: "Pearl Jam",
+    song: "Jeremy",
+    album: "Ten",
+    image: "/ten.webp",
+    time: "5:18",
+    date: "2016-05-15",
     liked: true
   },
   {
-    artist: 'The White Stripes',
-    song: 'We\'re Going to Be Friends',
-    album: 'White Blood Cells',
-    image: '',
-    time: '2:20',
-    date: '2023-12-08',
+    artist: "Pearl Jam",
+    song: "Even Flow",
+    album: "Ten",
+    image: "/ten.webp",
+    time: "4:53",
+    date: "2016-05-15",
     liked: true
   },
   {
-    artist: 'Dire Straits',
-    song: 'Walk Of Life',
-    album: 'Brothers In Arms (Remastered)',
-    image: '',
-    time: '4:10',
-    date: '2023-12-08',
+    artist: "The Offspring",
+    song: "Genocide",
+    album: "Smash",
+    image: "/smash.webp",
+    time: "3:33",
+    date: "2021-04-15",
     liked: true
   },
+  {
+    artist: "Red Hot Chili Peppers",
+    song: "Road Trippin'",
+    album: "Californication (Deluxe Edition)",
+    image: "/californication.webp",
+    time: "3:25",
+    date: "2021-05-22",
+    liked: true
+  },
+  {
+    artist: "Iron Maiden",
+    song: "22 Acacia Avenue",
+    album: "The Number of the Beast (2015 Remaster)",
+    image: "/the-number-of-the-beast.webp",
+    time: "6:37",
+    date: "2021-04-29",
+    liked: true
+  },
+  {
+    artist: "System Of A Down",
+    song: "Prison Song",
+    album: "Toxicity",
+    image: "/toxicity.webp",
+    time: "3:21",
+    date: "2020-07-16",
+    liked: true
+  },
+  {
+    artist: "Pearl Jam",
+    song: "Black",
+    album: "Ten",
+    image: "/ten.webp",
+    time: "5:43",
+    date: "2016-05-15",
+    liked: true
+  },
+  {
+    artist: "Metallica",
+    song: "Shadows Follow",
+    album: "72 Seasons",
+    image: "/72-seasons.webp",
+    time: "6:12",
+    date: "2023-04-14",
+    liked: true
+  },
+  {
+    artist: "The Offspring",
+    song: "Self Esteem",
+    album: "Smash",
+    image: "/smash.webp",
+    time: "4:18",
+    date: "2021-04-15",
+    liked: true
+  },
+  {
+    artist: "The Offspring",
+    song: "Bad Habit",
+    album: "Smash",
+    image: "/smash.webp",
+    time: "3:44",
+    date: "2021-04-15",
+    liked: true
+  },
+  {
+    artist: "System Of A Down",
+    song: "Psycho",
+    album: "Toxicity",
+    image: "/toxicity.webp",
+    time: "3:46",
+    date: "2020-07-16",
+    liked: true
+  },
+  {
+    artist: "Iron Maiden",
+    song: "Run to the Hills",
+    album: "The Number of the Beast (2015 Remaster)",
+    image: "/the-number-of-the-beast.webp",
+    time: "3:54",
+    date: "2021-04-29",
+    liked: true
+  },
+  {
+    artist: "The Offspring",
+    song: "Come Out and Play",
+    album: "Smash",
+    image: "/smash.webp",
+    time: "3:18",
+    date: "2021-04-15",
+    liked: true
+  },
+  {
+    artist: "System Of A Down",
+    song: "Toxicity",
+    album: "Toxicity",
+    image: "/toxicity.webp",
+    time: "3:39",
+    date: "2020-07-16",
+    liked: true
+  },
+  {
+    artist: "Pearl Jam",
+    song: "Alive",
+    album: "Ten",
+    image: "/ten.webp",
+    time: "5:41",
+    date: "2016-05-15",
+    liked: true
+  },
+  {
+    artist: "System Of A Down",
+    song: "Chop Suey!",
+    album: "Toxicity",
+    image: "/toxicity.webp",
+    time: "3:30",
+    date: "2020-07-16",
+    liked: true
+  },
+  {
+    artist: "Metallica",
+    song: "You Must Burn!",
+    album: "72 Seasons",
+    image: "/72-seasons.webp",
+    time: "7:03",
+    date: "2023-04-14",
+    liked: true
+  },
+  {
+    artist: "Iron Maiden",
+    song: "Invaders",
+    album: "The Number of the Beast (2015 Remaster)",
+    image: "/the-number-of-the-beast.webp",
+    time: "3:23",
+    date: "2021-04-29",
+    liked: true
+  },
+  {
+    artist: "Metallica",
+    song: "If Darkness Had a Son",
+    album: "72 Seasons",
+    image: "/72-seasons.webp",
+    time: "6:36",
+    date: "2023-04-14",
+    liked: true
+  },
+  {
+    artist: "Red Hot Chili Peppers",
+    song: "Californication",
+    album: "Californication (Deluxe Edition)",
+    image: "/californication.webp",
+    time: "5:30",
+    date: "2021-05-22",
+    liked: true
+  }
 ];
 
 export const CONTEXT_MENU_HEADER = [
