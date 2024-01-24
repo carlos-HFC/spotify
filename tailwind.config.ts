@@ -68,6 +68,9 @@ const config: Config = {
       },
       fontSize: {
         xxs: '.625rem'
+      },
+      dropShadow: {
+        'play-green': '0px 4px 16px rgba(0, 0, 0, 0.45)'
       }
     },
   },

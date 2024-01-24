@@ -35,9 +35,9 @@ export function Suggestion(props: SuggestionProps) {
         <Image
           src="/assets/play-green.svg"
           alt="Play"
-          width={94}
-          height={94}
-          className="absolute invisible group-hover:visible -bottom-2 -right-2"
+          width={62}
+          height={62}
+          className="absolute invisible group-hover:visible bottom-2 right-2 drop-shadow-play-green"
         />
       </div>
 

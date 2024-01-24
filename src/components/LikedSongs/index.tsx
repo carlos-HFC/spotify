@@ -24,9 +24,9 @@ export function LikedSongs() {
       <Image
         src="/assets/play-green.svg"
         alt="Play"
-        width={94}
-        height={94}
-        className="absolute right-0 bottom-0 invisible group-hover:visible"
+        width={62}
+        height={62}
+        className="absolute right-0 bottom-0 invisible group-hover:visible drop-shadow-play-green"
       />
     </a>
   );
