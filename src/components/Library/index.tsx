@@ -1,8 +1,6 @@
 import { cn } from "@/utils";
 
-interface LibraryProps {
-  title: string;
-  description: string;
+interface LibraryProps extends Omit<Playlist, 'image'> {
   active?: boolean;
 }
 

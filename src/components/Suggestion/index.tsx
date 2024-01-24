@@ -2,10 +2,7 @@ import Image from "next/image";
 
 import { cn } from "@/utils";
 
-interface SuggestionProps {
-  image: string;
-  title: string;
-  description: string;
+interface SuggestionProps extends Playlist {
   isSearch?: boolean;
   rounded?: boolean;
 }
