@@ -50,7 +50,7 @@ export function Cover(props: CoverProps) {
             </>
           )}
           <span className="text-white/70">
-            {props.qty} músicas{props.time && `, ${props.time}`}
+            {Intl.NumberFormat('pt-BR').format(props.qty)} músicas{props.time && `, ${props.time}`}
           </span>
         </div>
       </div>
