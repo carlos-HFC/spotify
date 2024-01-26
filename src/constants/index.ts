@@ -570,17 +570,17 @@ export const RECENTLY_PLAYED = [
   {
     image: "/metallica.webp",
     title: "BEST METALLICA",
-    description: "De Carlos Faustino"
+    description: `De ${LOGGED_USER.name}`
   },
   {
     image: "/the-number-of-the-beast.webp",
     title: "Heavy Metal",
-    description: "De Carlos Faustino"
+    description: `De ${LOGGED_USER.name}`
   },
   {
     image: "/rhcp.webp",
     title: "BEST RHCP",
-    description: "De Carlos Faustino"
+    description: `De ${LOGGED_USER.name}`
   },
   {
     image: "/72-seasons.webp",
@@ -632,31 +632,31 @@ export const YOUR_PLAYLISTS = [
   {
     image: "/rhcp.webp",
     title: "BEST RHCP",
-    description: "De Carlos Faustino"
+    description: `De ${LOGGED_USER.name}`
   },
   {
     image: "/ten.webp",
     title: "Grunge",
-    description: "De Carlos Faustino"
+    description: `De ${LOGGED_USER.name}`
   },
   {
     image: "/pearl-jam.webp",
     title: "BEST PEARL JAM",
-    description: "De Carlos Faustino"
+    description: `De ${LOGGED_USER.name}`
   },
   {
     image: "/offspring.webp",
     title: "BEST OFFSPRING",
-    description: "De Carlos Faustino"
+    description: `De ${LOGGED_USER.name}`
   },
   {
     image: "/iron-maiden.webp",
     title: "BEST IRON MAIDEN",
-    description: "De Carlos Faustino"
+    description: `De ${LOGGED_USER.name}`
   },
   {
     image: "/72-seasons.webp",
     title: "Thrash Metal",
-    description: "De Carlos Faustino"
+    description: `De ${LOGGED_USER.name}`
   },
 ];
