@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { ContextMenu } from "@/components/ContextMenu";
 import { Cover } from "@/components/Cover";
@@ -18,31 +18,30 @@ export default function MusicasCurtidas() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const sort = searchParams.get('sort');
-  const order = searchParams.get('order');
+  const params = Object.fromEntries(searchParams);
 
   function sortSongs(key: string) {
-    const params = new URLSearchParams(searchParams.toString());
+    const urlParams = new URLSearchParams(searchParams.toString());
 
     if (key) {
-      params.set('sort', key);
-      params.set('order', 'desc');
+      urlParams.set('sort', key);
+      urlParams.set('order', 'desc');
 
-      if (key === sort) {
-        if (order === 'desc') {
-          params.set('order', 'asc');
-        } else if (order === 'asc') {
-          params.delete('order');
-          params.delete('sort');
+      if (key === params.sort) {
+        if (params.order === 'desc') {
+          urlParams.set('order', 'asc');
+        } else if (params.order === 'asc') {
+          urlParams.delete('order');
+          urlParams.delete('sort');
         }
       }
     }
 
-    router.replace(`${pathname}?${params.toString()}`);
+    router.replace(`${pathname}?${urlParams.toString()}`, { scroll: false });
   }
 
   return (
-    <div className="flex flex-col bg-liked-page pt-24 min-h-screen">
+    <div className="flex flex-col bg-liked-page pt-24 pb-16">
       <header className="mb-8 px-10">
         <Cover
           author={LOGGED_USER.name}
@@ -53,7 +52,7 @@ export default function MusicasCurtidas() {
         />
       </header>
 
-      <section className="bg-grayscale-1000/30 px-10 pt-8 h-screen space-y-8">
+      <section className="bg-grayscale-1000/30 px-10 pt-8 space-y-8">
         <div className="flex justify-between items-center *:flex *:items-center">
           <div className="gap-5 *:opacity-75 hover:*:opacity-100 hover:*:scale-105">
             <Image
@@ -118,28 +117,28 @@ export default function MusicasCurtidas() {
               >
                 <div className="flex items-center gap-4 justify-start">
                   <span className="min-w-[28px] text-center">#</span>
-                  <span className={cn("flex items-center gap-2 group-hover:text-white", sort === 'song' && 'text-spotify-100')}>
+                  <span className={cn("flex items-center gap-2 group-hover:text-white", params.sort === 'song' && 'text-spotify-100')}>
                     Título
-                    <div className={cn("border-t-8 border-l-8 border-r-8 border-t-spotify-100 group-hover:border-t-white border-l-transparent border-r-transparent", order === 'desc' ? 'rotate-180' : "rotate-0", sort === 'song' ? "block" : "hidden")} />
+                    <div className={cn("border-t-8 border-l-8 border-r-8 border-t-spotify-100 group-hover:border-t-white border-l-transparent border-r-transparent", params.order === 'desc' ? 'rotate-180' : "rotate-0", params.sort === 'song' ? "block" : "hidden")} />
                   </span>
                 </div>
               </th>
               <th
-                className={cn("text-left font-normal group", sort === 'album' && "text-spotify-100")}
+                className={cn("text-left font-normal group", params.sort === 'album' && "text-spotify-100")}
                 onClick={() => sortSongs('album')}
               >
                 <span className="flex items-center gap-2 group-hover:text-white">
                   Álbum
-                  <div className={cn("border-t-8 border-l-8 border-r-8 border-t-spotify-100 group-hover:border-t-white border-l-transparent border-r-transparent", order === 'desc' ? 'rotate-180' : "rotate-0", sort === 'album' ? 'block' : 'hidden')} />
+                  <div className={cn("border-t-8 border-l-8 border-r-8 border-t-spotify-100 group-hover:border-t-white border-l-transparent border-r-transparent", params.order === 'desc' ? 'rotate-180' : "rotate-0", params.sort === 'album' ? 'block' : 'hidden')} />
                 </span>
               </th>
               <th
-                className={cn("text-left font-normal group", sort === 'date' && "text-spotify-100")}
+                className={cn("text-left font-normal group", params.sort === 'date' && "text-spotify-100")}
                 onClick={() => sortSongs('date')}
               >
                 <span className="flex items-center gap-2 group-hover:text-white">
                   Adicionada em
-                  <div className={cn("border-t-8 border-l-8 border-r-8 border-t-spotify-100 group-hover:border-t-white border-l-transparent border-r-transparent", order === 'desc' ? 'rotate-180' : "rotate-0", sort === 'date' ? 'block' : "hidden")} />
+                  <div className={cn("border-t-8 border-l-8 border-r-8 border-t-spotify-100 group-hover:border-t-white border-l-transparent border-r-transparent", params.order === 'desc' ? 'rotate-180' : "rotate-0", params.sort === 'date' ? 'block' : "hidden")} />
                 </span>
               </th>
               <th className="pr-5 font-normal">
@@ -155,7 +154,7 @@ export default function MusicasCurtidas() {
             </tr>
           </thead>
           <tbody className="before:text-transparent before:h-5 before:block">
-            {orderArray(SONGS, sort as keyof Omit<Track, 'description'>, order && order === 'asc' ? true : false).map((item, i) => (
+            {orderArray(SONGS, params.sort as keyof Omit<Track, 'description'>, params.order && params.order === 'asc' ? true : false).map((item, i) => (
               <Music
                 key={item.song}
                 {...item}
