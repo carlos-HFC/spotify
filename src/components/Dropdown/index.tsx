@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { CONTEXT_MENU_HEADER } from "@/constants";
+import { CONTEXT_MENU_HEADER, LOGGED_USER } from "@/constants";
 import { cn } from "@/utils";
 
 export function Dropdown() {
@@ -40,14 +40,14 @@ export function Dropdown() {
         onClick={() => setIsOpen(prev => !prev)}
       >
         <Image
-          src="/72-seasons.webp"
-          alt="Usuário logado"
+          src={LOGGED_USER.image}
+          alt={LOGGED_USER.name}
           loading="lazy"
           width={32}
           height={32}
           className="rounded-full"
         />
-        <p className="font-bold text-lg">Carlos Faustino</p>
+        <p className="font-bold text-lg">{LOGGED_USER.name}</p>
         <Image
           src="/assets/arrow-down.svg"
           alt="Seta para baixo"

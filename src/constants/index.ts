@@ -1,3 +1,8 @@
+export const LOGGED_USER = {
+  image: '/metallica.webp',
+  name: 'Carlos Faustino',
+};
+
 export const MENU = [
   {
     label: 'Início',
