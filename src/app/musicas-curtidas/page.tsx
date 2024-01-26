@@ -7,14 +7,9 @@ import { ContextMenu } from "@/components/ContextMenu";
 import { Cover } from "@/components/Cover";
 import { Music } from "@/components/Music";
 
-import { SONGS } from "@/constants";
+import { LOGGED_USER, SONGS } from "@/constants";
 import { useContextMenu } from "@/hooks/useContextMenu";
-import { orderArray } from "@/utils";
-
-type FilterSongs = {
-  key?: string;
-  asc?: boolean;
-};
+import { cn, orderArray } from "@/utils";
 
 export default function MusicasCurtidas() {
   const contextMenu = useContextMenu();
@@ -23,14 +18,25 @@ export default function MusicasCurtidas() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  function sortSongs({ key, asc }: FilterSongs) {
+  const sort = searchParams.get('sort');
+  const order = searchParams.get('order');
+
+  function sortSongs(key: string) {
     const params = new URLSearchParams(searchParams.toString());
 
-    if (key) params.set('sort', key);
-    else params.delete('sort');
+    if (key) {
+      params.set('sort', key);
+      params.set('order', 'desc');
 
-    if (asc) params.set('order', String(asc));
-    else params.delete('order');
+      if (key === sort) {
+        if (order === 'desc') {
+          params.set('order', 'asc');
+        } else if (order === 'asc') {
+          params.delete('order');
+          params.delete('sort');
+        }
+      }
+    }
 
     router.replace(`${pathname}?${params.toString()}`);
   }
@@ -39,8 +45,8 @@ export default function MusicasCurtidas() {
     <div className="flex flex-col bg-liked-page pt-24 min-h-screen">
       <header className="mb-8 px-10">
         <Cover
-          author="Carlos Faustino"
-          authorImage="/metallica.webp"
+          author={LOGGED_USER.name}
+          authorImage={LOGGED_USER.image}
           image="/assets/liked-song.svg"
           qty={SONGS.length}
           title="Músicas Curtidas"
@@ -105,27 +111,36 @@ export default function MusicasCurtidas() {
             <col width="15%" />
           </colgroup>
           <thead className="text-grayscale-200 text-base border-b border-grayscale-300">
-            <tr className="*:select-none hover:*:text-white">
+            <tr className="*:select-none">
               <th
-                className="py-3 pl-5 font-normal"
-                onClick={() => sortSongs({ key: 'song' })}
+                className="py-3 pl-5 font-normal group"
+                onClick={() => sortSongs('song')}
               >
                 <div className="flex items-center gap-4 justify-start">
                   <span className="min-w-[28px] text-center">#</span>
-                  <span>Título</span>
+                  <span className={cn("flex items-center gap-2 group-hover:text-white", sort === 'song' && 'text-spotify-100')}>
+                    Título
+                    <div className={cn("border-t-8 border-l-8 border-r-8 border-t-spotify-100 group-hover:border-t-white border-l-transparent border-r-transparent", order === 'desc' ? 'rotate-180' : "rotate-0", sort === 'song' ? "block" : "hidden")} />
+                  </span>
                 </div>
               </th>
               <th
-                className="text-left font-normal"
-                onClick={() => sortSongs({ key: 'album' })}
+                className={cn("text-left font-normal group", sort === 'album' && "text-spotify-100")}
+                onClick={() => sortSongs('album')}
               >
-                Álbum
+                <span className="flex items-center gap-2 group-hover:text-white">
+                  Álbum
+                  <div className={cn("border-t-8 border-l-8 border-r-8 border-t-spotify-100 group-hover:border-t-white border-l-transparent border-r-transparent", order === 'desc' ? 'rotate-180' : "rotate-0", sort === 'album' ? 'block' : 'hidden')} />
+                </span>
               </th>
               <th
-                className="text-left font-normal"
-                onClick={() => sortSongs({ key: 'date' })}
+                className={cn("text-left font-normal group", sort === 'date' && "text-spotify-100")}
+                onClick={() => sortSongs('date')}
               >
-                Adicionada em
+                <span className="flex items-center gap-2 group-hover:text-white">
+                  Adicionada em
+                  <div className={cn("border-t-8 border-l-8 border-r-8 border-t-spotify-100 group-hover:border-t-white border-l-transparent border-r-transparent", order === 'desc' ? 'rotate-180' : "rotate-0", sort === 'date' ? 'block' : "hidden")} />
+                </span>
               </th>
               <th className="pr-5 font-normal">
                 <div className="flex justify-end mr-11">
@@ -140,7 +155,7 @@ export default function MusicasCurtidas() {
             </tr>
           </thead>
           <tbody className="before:text-transparent before:h-5 before:block">
-            {orderArray(SONGS, searchParams.get("sort") as keyof Omit<Track, 'description'>).map((item, i) => (
+            {orderArray(SONGS, sort as keyof Omit<Track, 'description'>, order && order === 'asc' ? true : false).map((item, i) => (
               <Music
                 key={item.song}
                 {...item}
