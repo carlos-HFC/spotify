@@ -45,12 +45,12 @@ export function Cover(props: CoverProps) {
           <small className="text-xxs">&bull;</small>
           {props.likes && (
             <>
-              <span>{Intl.NumberFormat('pt-BR').format(props.likes)} likes</span>
+              <span>{props.likes.toLocaleString('pt-BR')} likes</span>
               <small className="text-xxs">&bull;</small>
             </>
           )}
           <span className="text-white/70">
-            {Intl.NumberFormat('pt-BR').format(props.qty)} músicas{props.time && `, ${props.time}`}
+            {props.qty.toLocaleString('pt-BR')} músicas{props.time && `, ${props.time}`}
           </span>
         </div>
       </div>

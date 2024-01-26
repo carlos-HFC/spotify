@@ -18,7 +18,7 @@ export function LikedSongs() {
 
       <div className="flex flex-col relative">
         <span className="font-bold text-4xl">Músicas Curtidas</span>
-        <p className="text-xl">{Intl.NumberFormat('pt-BR').format(SONGS.length)} músicas</p>
+        <p className="text-xl">{SONGS.length.toLocaleString('pt-BR')} músicas</p>
       </div>
 
       <Image
