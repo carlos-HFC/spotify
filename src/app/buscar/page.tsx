@@ -1,5 +1,7 @@
+import { Genre } from "@/components/Genre";
 import { Suggestion } from "@/components/Suggestion";
-import { RECENTLY_PLAYED } from "@/constants";
+
+import { SEARCH, GENRES } from "@/constants";
 
 export default function Buscar() {
   return (
@@ -7,9 +9,11 @@ export default function Buscar() {
       <section className="gap-8 mb-8">
         <div className="font-bold text-3xl">Buscas recentes</div>
         <div className="flex gap-8">
-          {RECENTLY_PLAYED.map(item => (
+          {SEARCH.map(item => (
             <Suggestion
+              key={item.title}
               {...item}
+              isSearch
             />
           ))}
         </div>
@@ -18,8 +22,9 @@ export default function Buscar() {
       <section className="gap-4">
         <div className="font-bold text-3xl">Seu top gêneros</div>
         <div className="flex gap-8">
-          {RECENTLY_PLAYED.map(item => (
-            <Suggestion
+          {GENRES.map(item => item.top && (
+            <Genre
+              key={item.genre}
               {...item}
             />
           ))}
@@ -28,10 +33,12 @@ export default function Buscar() {
 
       <section className="gap-8">
         <div className="font-bold text-3xl">Navegar por todas as seções</div>
-        <div className="flex gap-8">
-          {RECENTLY_PLAYED.map(item => (
-            <Suggestion
+        <div className="grid grid-cols-5 gap-8">
+          {GENRES.map(item => (
+            <Genre
+              key={item.genre}
               {...item}
+              top={false}
             />
           ))}
         </div>
