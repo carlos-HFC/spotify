@@ -450,7 +450,7 @@ export const RECENTLY_PLAYED = [
   {
     image: "/assets/liked-song.svg",
     title: "Músicas Curtidas",
-    description: "1.517 músicas"
+    description: `${SONGS.length.toLocaleString('pt-BR')} músicas`
   },
   {
     image: "/metallica.webp",
