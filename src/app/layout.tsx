@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Rubik } from 'next/font/google';
 
+import { sharedMetadata } from "./shared-metadata";
+
 import { Layout } from "@/components/Layout";
 
 import { circular } from '@/fonts';
@@ -14,10 +16,7 @@ const rubik = Rubik({
   variable: '--rubik'
 });
 
-export const metadata: Metadata = {
-  title: 'Spotify',
-  description: 'Listen to music.',
-};
+export const metadata: Metadata = sharedMetadata;
 
 export default function RootLayout({
   children,
