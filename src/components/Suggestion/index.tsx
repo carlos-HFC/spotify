@@ -11,7 +11,7 @@ export function Suggestion(props: SuggestionProps) {
   return (
     <a
       href="#"
-      className="bg-white/5 p-5 rounded-lg hover:bg-white/10 h-max w-[224px] min-h-[324px] flex-1 flex flex-col gap-2 group text-inherit relative"
+      className="bg-white/5 p-5 rounded-lg hover:bg-white/10 h-max w-[224px] min-h-[324px] flex flex-col gap-2 group text-inherit relative"
     >
       <div className={cn("absolute top-3 right-3 rounded-full bg-black/20", props.isSearch ? "block" : "hidden")}>
         <Image
@@ -22,7 +22,7 @@ export function Suggestion(props: SuggestionProps) {
         />
       </div>
 
-      <div className="relative h-[184px]">
+      <div className="relative">
         <Image
           src={props.image}
           alt={props.title}
