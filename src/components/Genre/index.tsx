@@ -44,7 +44,7 @@ export function Genre(props: GenreProps) {
   return (
     <a
       href="#"
-      className={cn("overflow-hidden rounded-xl flex relative max-w-[480px] p-5", props.top ? "flex-1 h-64" : 'size-60', VARIANT[props.variant])}
+      className={cn("overflow-hidden rounded-xl flex flex-1 min-w-60 min-h-60 relative max-w-[480px] p-5", props.top && "h-64", VARIANT[props.variant])}
     >
       <div className={cn("font-bold", props.top ? "text-5xl tracking-[-2.6px]" : "text-3xl tracking-[-.9px]")}>
         {props.genre}
