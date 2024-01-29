@@ -49,7 +49,7 @@ export const LIBRARY = [
   },
   {
     title: 'Heavy Metal',
-    description: 'PLaylist',
+    description: 'Playlist',
     active: false
   },
   {
