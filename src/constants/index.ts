@@ -428,121 +428,6 @@ export const CONTEXT_MENU_SONG = [
   }
 ];
 
-export const VARIANT = {
-  pop: {
-    background: 'bg-genre-pop',
-    border: 'border-genre-pop',
-  },
-  afro: {
-    background: 'bg-genre-afro',
-    border: 'border-genre-afro',
-  },
-  'hip-hop': {
-    background: 'bg-genre-hip-hop',
-    border: 'border-genre-hip-hop',
-  },
-  podcasts: {
-    background: 'bg-genre-podcasts',
-    border: 'border-genre-podcasts',
-  },
-  'made-for-you': {
-    background: 'bg-genre-made-for-you',
-    border: 'border-genre-made-for-you',
-  },
-  music: {
-    background: 'bg-genre-music',
-    border: 'border-genre-music',
-  },
-  'live-event': {
-    background: 'bg-genre-live-event',
-    border: 'border-genre-live-event',
-  },
-  release: {
-    background: 'bg-genre-release',
-    border: 'border-genre-release',
-  },
-  brazil: {
-    background: 'bg-genre-brazil',
-    border: 'border-genre-brazil',
-  },
-  pagode: {
-    background: 'bg-genre-pagode',
-    border: 'border-genre-pagode',
-  },
-  mpb: {
-    background: 'bg-genre-mpb',
-    border: 'border-genre-mpb',
-  },
-  rock: {
-    background: 'bg-genre-rock',
-    border: 'border-genre-rock',
-  },
-  alternative: {
-    background: 'bg-genre-alternative',
-    border: 'border-genre-alternative',
-  },
-  blues: {
-    background: 'bg-genre-blues',
-    border: 'border-genre-blues',
-  },
-  punk: {
-    background: 'bg-genre-punk',
-    border: 'border-genre-punk',
-  },
-  classic: {
-    background: 'bg-genre-classic',
-    border: 'border-genre-classic',
-  },
-  instrumental: {
-    background: 'bg-genre-instrumental',
-    border: 'border-genre-instrumental',
-  },
-  jazz: {
-    background: 'bg-genre-jazz',
-    border: 'border-genre-jazz',
-  },
-  reggae: {
-    background: 'bg-genre-reggae',
-    border: 'border-genre-reggae',
-  },
-  tv: {
-    background: 'bg-genre-tv',
-    border: 'border-genre-tv',
-  },
-  games: {
-    background: 'bg-genre-games',
-    border: 'border-genre-games',
-  },
-  rb: {
-    background: 'bg-genre-rb',
-    border: 'border-genre-rb',
-  },
-  kpop: {
-    background: 'bg-genre-kpop',
-    border: 'border-genre-kpop',
-  },
-  latina: {
-    background: 'bg-genre-latina',
-    border: 'border-genre-latina',
-  },
-  soul: {
-    background: 'bg-genre-soul',
-    border: 'border-genre-soul',
-  },
-  folk: {
-    background: 'bg-genre-folk',
-    border: 'border-genre-folk',
-  },
-  country: {
-    background: 'bg-genre-country',
-    border: 'border-genre-country',
-  },
-  sertanejo: {
-    background: 'bg-genre-sertanejo',
-    border: 'border-genre-sertanejo',
-  },
-};
-
 export const EPISODES = [
   {
     image: "/semana-nfl.webp",
@@ -659,4 +544,184 @@ export const YOUR_PLAYLISTS = [
     title: "Thrash Metal",
     description: `De ${LOGGED_USER.name}`
   },
+];
+
+export const SEARCH = [
+  {
+    image: "/metallica.webp",
+    title: "Metallica",
+    description: "Artista"
+  },
+  {
+    image: "/pearl-jam.webp",
+    title: "Pearl Jam",
+    description: "Artista"
+  },
+  {
+    image: "/offspring.webp",
+    title: "The Offspring",
+    description: "Artista"
+  },
+  {
+    image: "/smash.webp",
+    title: "Smash",
+    description: "Álbum"
+  },
+];
+
+type Genres = {
+  top?: boolean;
+  variant: Genre;
+  image: string;
+  genre: string;
+};
+
+export const GENRES: Array<Genres> = [
+  {
+    top: true,
+    variant: "rock",
+    image: "/californication.webp",
+    genre: "Rock",
+  },
+  {
+    top: true,
+    variant: "rock",
+    image: "/the-number-of-the-beast.webp",
+    genre: "Metal",
+  },
+  {
+    variant: "punk",
+    image: "/smash.webp",
+    genre: "Punk",
+  },
+  {
+    variant: "pop",
+    image: "/toxicity.webp",
+    genre: "Pop"
+  },
+  {
+    variant: "afro",
+    image: "/ten.webp",
+    genre: "Afro"
+  },
+  {
+    variant: "hip-hop",
+    image: "/iron-maiden.webp",
+    genre: "Hip hop"
+  },
+  {
+    variant: "podcasts",
+    image: "/semana-nfl.webp",
+    genre: "Podcasts"
+  },
+  {
+    variant: "made-for-you",
+    image: "/72-seasons.webp",
+    genre: "Feito para você"
+  },
+  {
+    variant: "music",
+    image: "/metallica.webp",
+    genre: "Música"
+  },
+  {
+    variant: "live-event",
+    image: "/soad.webp",
+    genre: "Eventos ao vivo"
+  },
+  {
+    variant: "release",
+    image: "/rhcp.webp",
+    genre: "Lançamentos"
+  },
+  {
+    variant: "brazil",
+    image: "/metallica.webp",
+    genre: "Brasil"
+  },
+  {
+    variant: "pagode",
+    image: "/pearl-jam.webp",
+    genre: "Pagode"
+  },
+  {
+    variant: "mpb",
+    image: "/offspring.webp",
+    genre: "MPB"
+  },
+  {
+    variant: "alternative",
+    image: "/smash.webp",
+    genre: "Alternativa"
+  },
+  {
+    variant: "blues",
+    image: "/californication.webp",
+    genre: "Blues"
+  },
+  {
+    variant: "classic",
+    image: "/the-number-of-the-beast.webp",
+    genre: "Clássico"
+  },
+  {
+    variant: "instrumental",
+    image: "/soad.webp",
+    genre: "Instrumental"
+  },
+  {
+    variant: "jazz",
+    image: "/ten.webp",
+    genre: "Jazz"
+  },
+  {
+    variant: "reggae",
+    image: "/smash.webp",
+    genre: "Reggae"
+  },
+  {
+    variant: "tv",
+    image: "/72-seasons.webp",
+    genre: "TV e filmes"
+  },
+  {
+    variant: "games",
+    image: "/soad.webp",
+    genre: "Jogos"
+  },
+  {
+    variant: "rb",
+    image: "/iron-maiden.webp",
+    genre: "R&B"
+  },
+  {
+    variant: "kpop",
+    image: "/offspring.webp",
+    genre: "K-pop"
+  },
+  {
+    variant: "latina",
+    image: "/ten.webp",
+    genre: "Latina"
+  },
+  {
+    variant: "soul",
+    image: "/metallica.webp",
+    genre: "Soul"
+  },
+  {
+    variant: "folk",
+    image: "/rhcp.webp",
+    genre: "Folk"
+  },
+  {
+    variant: "country",
+    image: "/toxicity.webp",
+    genre: "Country"
+  },
+  {
+    variant: "sertanejo",
+    image: "/pearl-jam.webp",
+    genre: "Sertanejo"
+  }
 ];
